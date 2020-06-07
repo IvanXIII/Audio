@@ -1,0 +1,33 @@
+{% extends 'App/base.html' %}
+{% load crispy_forms_tags %}
+{% block Title %}
+    Отзывы
+{% endblock %}
+
+{% block Content %}
+<style>
+table{
+     padding: 5px; /* Поля вокруг текста */
+  font-family: sans-serif; /* Рубленый шрифт */
+  font-size: 15pt;
+}
+.feedback{
+    color: rgba(255, 255, 255, 0.54);
+}
+
+</style>
+    <p></p>
+    <table class="table" , style="background: #1861e0; border-radius: 10px" ;>
+        <td>
+        <p>
+            <span class="feedback"> Пожалуйста, оставьте свой отзыв, он очень важен для нас</span>
+            </p>
+        <form method="POST" class="post-form", style="color: #ffffff">
+            {% csrf_token %}
+            {{ task_form|crispy }}
+            <button type="submit" class="btn btn-info">Отправить</button>
+        </form>
+        </td>
+    </tr>
+    </table>
+{% endblock %}
