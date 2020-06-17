@@ -1,0 +1,42 @@
+{% extends 'App/base.html' %}
+{% load static %}
+{% block Title %}
+    Лекции
+{% endblock %}
+{% block Content %}
+<style>
+audio{
+    position: relative;
+    width: 220px;
+    padding-bottom: 5%;
+    float: bottom;
+}
+.list{
+    font-size: 15px;
+    color: white;
+}
+.list:hover{
+    color: white;
+}
+</style>
+<p></p>
+        <div class="row justify-content-center">
+    <a  class="list" href="list_of_lections">Перейти к краткому списку всех лекций</a>
+        </div>
+<p></p>
+{% for lection in all_lections %}
+  <div class="card text-white" style="background: #1861e0">
+    <img src="{{ lection.photo.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Лекция {{ lection.number_of_lection }}: {{ lection.name }} </h5>
+      <p class="card-text">{{ lection.description}}</p>
+      <div class="btn-group">
+  <button type="button" class="btn btn-info" aria-haspopup="true" aria-expanded="false" onclick="location.href='list_of_lections/lect{{ lection.number_of_lection }}'">
+    Перейти к лекции
+  </button>
+</div>
+    </div>
+  </div>
+    <br>
+{% endfor %}
+{% endblock %}

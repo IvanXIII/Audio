@@ -7,21 +7,23 @@
 {% block Content %}
 <style>
 table{
-     padding: 5px; /* Поля вокруг текста */
   font-family: sans-serif; /* Рубленый шрифт */
   font-size: 15pt;
 }
 .feedback{
     color: rgba(255, 255, 255, 0.54);
 }
-
+td{
+    padding: 10px;
+}
 </style>
-    <p></p>
-    <table class="table" , style="background: #1861e0; border-radius: 10px" ;>
+    <div class="row justify-content-center">
+    <table  style="background: #1861e0; border-radius: 7px" ;>
         <td>
         <p>
-            <span class="feedback"> Пожалуйста, оставьте свой отзыв, он очень важен для нас</span>
+            <span class="feedback"> Пожалуйста, оставьте свой отзыв, расскажите, что бы вы еще хотели видеть на этом сайте</span>
             </p>
+
         <form method="POST" class="post-form", style="color: #ffffff">
             {% csrf_token %}
             {{ task_form|crispy }}
@@ -30,4 +32,5 @@ table{
         </td>
     </tr>
     </table>
+    </div>
 {% endblock %}
