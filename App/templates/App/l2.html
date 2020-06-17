@@ -1,0 +1,14 @@
+{% extends 'App/ex_of_lect.html' %}
+{% load static %}
+{% block Title %}
+Лекция 2
+{% endblock %}
+{% block Content %}
+<style>
+</style>
+    {% for lection in all_lections %}
+        {% if lection.number_of_lection == 2 %}
+            <p>  {{ lection.long_description }}</p>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

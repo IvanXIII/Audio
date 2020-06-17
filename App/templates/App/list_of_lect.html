@@ -1,0 +1,16 @@
+{% extends 'App/base.html' %}
+{% load static %}
+{% block Title %}
+    Список лекций
+{% endblock %}
+{% block Content %}
+    <div class="row justify-content-center">
+    <div class="col-10">
+    <div class="list-group" id="list-tab" role="tablist" style="margin-top:2%; font-size: 25px">
+        {% for lection in all_lections %}
+      <a class="list-group-item list-group-item-action" href="/lections/list_of_lections/lect{{ lection.number_of_lection }}" role="tab" aria-controls="home" style="background:#1861e0; color: white;">{{ lection.name }}</a>
+        {% endfor %}
+    </div>
+  </div>
+    </div>
+{% endblock %}
